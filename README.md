@@ -34,6 +34,11 @@ wait window Format('The balance for {lcUser} on {datetime()} is {lnBalance}')
 
 Notice how more concise and easier to read this is, yet it displays the same result as the String.Format example.
 
+The expressions in the placeholders must be visible to Format.prg:
+
+* Variables must be private or public, not local.
+* You can't use an expression like This.SomeProperty or Thisform.SomeMethod(). Instead, copy the result of the expression to a variable and use the variable in the placeholder.
+
 ## Format strings
 
 You can specify how each parameter should be formatted by adding ":" and a format string after the placeholder number or expression. For example:
