@@ -66,9 +66,15 @@ if not '{' $ tcFormat
 	lcCharRight = '>'
 endif not '{' $ tcFormat
 
+* Handle escaped characters.
+
+lcReturn = strtran(tcFormat, '\' + lcCharLeft,  chr(250))
+lcReturn = strtran(lcReturn, '\' + lcCharRight, chr(251))
+lcReturn = strtran(lcReturn, '\\r',             chr(252))
+lcReturn = strtran(lcReturn, '\\n',             chr(253))
+
 * Process the format string.
 
-lcReturn = tcFormat
 for lnCount = 1 to occurs(lcCharLeft, tcFormat)
 	lcSearch = strextract(tcFormat, lcCharLeft, lcCharRight, lnCount, 4)
 	lcFormat = strextract(lcSearch, ':', lcCharRight)
@@ -119,6 +125,13 @@ next lnCount
 
 lcReturn = strtran(lcReturn, '\r', chr(13))
 lcReturn = strtran(lcReturn, '\n', chr(10))
+
+* Handle escaped characters.
+
+lcReturn = strtran(lcReturn, chr(250), '\' + lcCharLeft)
+lcReturn = strtran(lcReturn, chr(251), '\' + lcCharRight)
+lcReturn = strtran(lcReturn, chr(252), '\\r')
+lcReturn = strtran(lcReturn, chr(253), '\\n')
 return lcReturn
 
 

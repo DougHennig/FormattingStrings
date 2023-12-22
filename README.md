@@ -10,7 +10,7 @@ Simply add Format.prg to your project and call it as necessary.
 
 ## Syntax
 
-You can call Format.prg with either String.Format-like syntax or string interpolation syntax. In both cases, the first parameter is an expression containing placeholders delimited with ```{}``` for values that are inserted at runtime. The placeholders can include format strings.
+You can call Format.prg with either String.Format-like syntax or string interpolation syntax. In both cases, the first parameter is an expression containing placeholders delimited with ```{}``` for values that are inserted at runtime. The placeholders can include format strings. Use "\r" in the expression for a carriage return (CHR(13)) and "\n" for a linefeed (CHR(10)). If you want to use "\r", "\n", "{", or "}" as literals, escape them with "\\" (for example, "\\\r" to include "\\r" in the expression without adding a carriage return).
 
 ### String.Format
 
