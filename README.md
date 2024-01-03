@@ -19,7 +19,7 @@ The expression contains numbered placeholders, starting with {0}. Each placehold
 ```
 lcUser    = alltrim(substr(sys(0), at('#', sys(0)) + 1))
 lnBalance = 12.3456
-wait window Format('The balance for {0} on {1} is {2}', sys(0), datetime(), lnBalance)
+wait window Format('The balance for {0} on {1} is {2}', lcUser, datetime(), lnBalance)
 ```
 
 This displays something like "The balance for dhenn on 12/16/2023 8:23:53 AM is 12.3456".
