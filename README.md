@@ -44,7 +44,7 @@ The expressions in the placeholders must be visible to Format.prg:
 You can specify how each parameter should be formatted by adding ":" and a format string after the placeholder number or expression. For example:
 
 ```
-wait window Format('The balance for {0} on {1:F} is {2:C2}', sys(0), datetime(), lnBalance)
+wait window Format('The balance for {0} on {1:F} is {2:C2}', lcUser, datetime(), lnBalance)
 wait window Format('The balance for {lcUser} on {datetime():F} is {lnBalance:C2}')
 ```
 
