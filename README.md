@@ -52,7 +52,16 @@ wait window Format('The balance for {lcUser} on {datetime():F} is {lnBalance:C2}
 
 See the [Format string component](https://learn.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting#format-string-component) section of the [Composite Formatting](https://learn.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting) article for details on format strings. Note that not all format strings are available: only datetime (with the exception of the O format) and numeric (with the exception of the B, E, G, and R formats) format strings are supported.
 
+## Why not use TEXTMERGE?
+
+Format goes beyond TEXTMERGE: it can format numeric and date values and insert carriage returns and linefeeds easily.
+
 ## Release History
+
+### 2024-08-24
+
+* Added missing LOCAL statements.
+* Ignore \r, \n, {, and } in values.
 
 ### 2023-12-16
 
